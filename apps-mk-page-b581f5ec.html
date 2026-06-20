@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 竞技的底层叙事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafbfc;
+            color: #1e293b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4.5rem;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 2.2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 520;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            color: #0b1b33;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.05rem;
+            color: #5d6c83;
+            font-weight: 380;
+            max-width: 590px;
+        }
+
+        /* ---------- section ---------- */
+        .section-block {
+            margin-bottom: 2.8rem;
+        }
+
+        .section-block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #14273e;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid #b4c8e0;
+            padding-left: 1rem;
+        }
+
+        .section-block p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            color: #2a3a4f;
+        }
+
+        .section-block p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .insight-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.2rem 1.4rem;
+            margin-top: 1.6rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01), 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef1f5;
+        }
+
+        .insight-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .insight-card .label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            color: #7b8ca3;
+            margin-bottom: 0.4rem;
+        }
+
+        /* ---------- faq-like block ---------- */
+        .faq-mini {
+            margin-top: 2.4rem;
+            border-top: 1px solid #e4e9f0;
+            padding-top: 2.2rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 480;
+            color: #1c304a;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini p {
+            font-size: 0.95rem;
+            color: #3b4d63;
+        }
+
+        /* ---------- footer ---------- */
+        .site-footer {
+            margin-top: 3.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e4e9f0;
+            font-size: 0.95rem;
+            color: #526477;
+        }
+
+        .site-footer a {
+            color: #1e4266;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd5e1;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .site-footer a:hover {
+            border-bottom-color: #1e4266;
+            color: #0a1e33;
+        }
+
+        .footer-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #6d7e96;
+        }
+
+        /* ---------- responsive ---------- */
+        @media (max-width: 520px) {
+            .page-wrap {
+                padding: 2rem 1rem 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subhead {
+                font-size: 0.95rem;
+            }
+
+            .section-block h2 {
+                font-size: 1.15rem;
+            }
+
+            .insight-card {
+                padding: 1rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+
+        <header class="hero">
+            <h1>MK体育 · 竞技的底层叙事</h1>
+            <div class="subhead">体育不止是比分与排名，更是身体策略、心理博弈与信息结构的交汇。</div>
+        </header>
+
+        <section class="section-block">
+            <h2>从「关键词」到主题场域</h2>
+            <p>「MK体育」并不只是一个平台名称，它背后关联着一套运动数据的重述方式——如何把赛场上的瞬时决策翻译成可被检索、可被理解的逻辑单元。体育迷关心战术执行与临场调整，而数据呈现方式决定了他们能否在数十场比赛里快速定位关键节点。MK 的索引思路更接近一种知识管理：把每一次攻防、换人、犯规拆解为带情境的片段，而非孤立的数字。</p>
+            <p>这种处理让体育内容从「赛后回顾」走向了「过程解析」。对于深度爱好者而言，看一篇细致标注的比赛拆解，往往比看一场重播收获更多。</p>
+        </section>
+
+        <section class="section-block">
+            <h2>三段式解读：身体、节奏与阅读</h2>
+            <p><strong>第一段 · 身体与空间的博弈</strong><br>
+            现代竞技的本质是对空间的争夺。无论足球、篮球还是网球，运动员在有限场地内通过跑位、卡位、变向制造时间差。MK 的内容沉淀了大量关于「空间效率」的讨论——某次无球跑动如何拉开防守、某个挡拆后为何出现三分空位。这些细节才是比赛真正的血肉。</p>
+
+            <p><strong>第二段 · 节奏控制与信息筛选</strong><br>
+            节奏不单指比赛速度，更指运动员处理信息的速率。顶级选手能在高压下过滤无关信号，只执行几套最优反应。MK 的专题内容常把「决策树」融入战术分析，帮助读者理解为什么某些球员在关键回合更可靠。这不是运气，而是训练中反复固化的神经回路。</p>
+
+            <p><strong>第三段 · 数据之外的人文厚度</strong><br>
+            再全面的数据也无法完全捕捉更衣室氛围、伤病恢复期的心理波动或教练与核心球员之间的信任关系。MK 的视角中包含这些「灰色的部分」——它们往往决定了一个赛季的走向。体育之所以迷人，恰恰因为它无法被完全量化。</p>
+
+            <div class="insight-card">
+                <span class="label">▸ 场景速写</span>
+                <p>设想一场足球赛的下半场第 70 分钟：边锋从右路内切，中锋同时向左侧拉扯，后腰提前移动到接应位置。这套配合在 MK 的分析框架里会被标注为「横向拆解 + 第三跑位」——阅读者可以快速回溯类似场景，形成自己的战术记忆库。</p>
+            </div>
+        </section>
+
+        <section class="section-block faq-mini">
+            <h3>常见疑问：MK 适合哪些阅读场景？</h3>
+            <p>适合赛前做对手简报、赛后复盘时对照关键回合、或者单纯想更深入理解一项运动的内在逻辑。内容难度偏向中高阶，但每篇都有上下文铺垫。如果你是刚开始关注战术细节的爱好者，建议从「空间与决策」专题读起。</p>
+        </section>
+
+        <footer class="site-footer">
+            <p>深入竞技的肌理，从更结构化的视角理解赛场。更多内容与持续更新，可访问 <a href="https://apps--mk.com">MK体育</a>。</p>
+            <div class="footer-note">
+                © 2025 · 基于知识梳理与赛事观察 · 没有夸张口号，只有真实的体育逻辑。
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
