@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>牛八体育 · 信息索引与资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        /* 页面头部 — 简洁资料库入口 */
+        .library-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #dce0e5;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .library-header h1 {
+            font-weight: 550;
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+            color: #0f172a;
+        }
+
+        .library-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748b;
+            margin-left: 0.75rem;
+        }
+
+        .library-header .version-tag {
+            background: #e6eaf0;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #334155;
+            border: 1px solid #cdd5de;
+        }
+
+        /* 主卡片 — 知识库入口区 */
+        .entry-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #e4e8ed;
+        }
+
+        .entry-card h2 {
+            font-size: 1.5rem;
+            font-weight: 520;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #0c4a6e;
+        }
+
+        .entry-card p, .entry-card li {
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .entry-card ul {
+            padding-left: 1.5rem;
+            margin: 0.7rem 0 0.2rem;
+        }
+
+        .entry-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 网格 — 目录感布局：说明区、提示区、相关信息区 */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .info-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #e4e8ed;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .info-block:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-block h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1e3a5f;
+        }
+
+        .info-block h3 i {
+            font-style: normal;
+            background: #dbeafe;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #1d4ed8;
+        }
+
+        .info-block p {
+            margin-bottom: 1rem;
+        }
+
+        .info-block .muted-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1px dashed #94a3b8;
+        }
+
+        .info-block .muted-link:hover {
+            color: #0f172a;
+            border-bottom: 1px solid #0f172a;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag-list span {
+            background: #edf2f7;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #2c3e50;
+            border: 1px solid #dce2ea;
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid #6366f1;
+            padding: 1rem 1.4rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .highlight-box strong {
+            color: #0f172a;
+        }
+
+        /* 全宽卡片 — 用于 FAQ 摘要或场景说明 */
+        .wide-note {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #e4e8ed;
+            box-shadow: 0 3px 9px rgba(0,0,0,0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .wide-note h3 {
+            font-weight: 530;
+            margin-bottom: 0.75rem;
+            color: #0b2b44;
+            font-size: 1.25rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 520;
+            color: #0c4a6e;
+        }
+
+        .faq-a {
+            color: #334155;
+            margin-top: 0.2rem;
+            padding-left: 0.8rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 1.8rem 0 0.5rem;
+            color: #5f6b7a;
+            font-size: 0.9rem;
+            border-top: 1px solid #dde2e8;
+        }
+
+        .footer-note a {
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 750px) {
+            .library-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+
+            .library-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .directory-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .entry-card {
+                padding: 1.5rem;
+            }
+
+            .info-block {
+                padding: 1.3rem;
+            }
+
+            .wide-note {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <!-- 资料库头部 / 索引感 -->
+    <header class="library-header">
+        <h1>
+            📁 牛八体育·资料索引
+            <small>信息整理 · 知识入口</small>
+        </h1>
+        <span class="version-tag">索引库 · 2409</span>
+    </header>
+
+    <!-- 主卡片：知识库入口式说明 -->
+    <div class="entry-card">
+        <h2>📌 资料整理说明</h2>
+        <p>
+            本页面围绕 <a href="https://cn-n8sports.com" style="color: #2563eb; text-decoration: none; font-weight: 500;">牛八体育</a> 平台，以信息索引与资料归档的视角，梳理其功能模块、内容特点及使用场景。以下所有介绍均基于公开资料及平台自身说明整理，力求客观、清晰。
+        </p>
+        <p style="margin-top: 0.8rem;">
+            你可以将本页看作一份精简的「知识库目录」，每个区块对应一类信息。如需获取更详尽的内容，可直接查阅 <a href="https://cn-n8sports.com" style="color: #1e293b; text-decoration: underline; text-underline-offset: 2px;">牛八体育</a> 上的官方说明与动态。
+        </p>
+        <ul>
+            <li>资料类别：平台概览 / 功能摘要 / 常见疑问 / 相关提示</li>
+            <li>更新方式：依照平台公开信息定期复核</li>
+            <li>适用对象：希望快速了解牛八体育内容的访客与研究者</li>
+        </ul>
+    </div>
+
+    <!-- 网格布局：说明区 · 提示区 · 相关信息区（利用grid 两列） -->
+    <div class="directory-grid">
+
+        <!-- 说明区卡片 -->
+        <div class="info-block">
+            <h3>📋 说明区 · 平台概览</h3>
+            <p>
+                <a href="https://cn-n8sports.com" class="muted-link">牛八体育</a> 是一个聚焦体育资讯、赛事动态及运动相关内容的信息平台。站内以分类栏目组织内容，涵盖多个体育项目的新闻、数据与专题整理。
+            </p>
+            <p>特点简述：</p>
+            <div class="tag-list">
+                <span>赛事资讯</span>
+                <span>运动数据</span>
+                <span>内容归档</span>
+                <span>分类浏览</span>
+            </div>
+            <div class="highlight-box" style="margin-top: 1.2rem;">
+                <strong>📎 资料整理角度</strong>：将平台视为一个持续更新的体育信息库，重点关注其内容组织方式与信息维度。
+            </div>
+        </div>
+
+        <!-- 提示区卡片 -->
+        <div class="info-block">
+            <h3>⚠️ 提示区 · 使用备忘</h3>
+            <p>在浏览或引用 <a href="https://cn-n8sports.com" class="muted-link">牛八体育</a> 内容时，请注意以下几点：</p>
+            <ul style="padding-left: 1rem; margin-top: 0.2rem;">
+                <li>平台内容会随赛事周期更新，部分历史数据可能存在延迟。</li>
+                <li>所有信息仅供个人参考，不构成专业建议或决策依据。</li>
+                <li>建议结合官方公告及其他可靠来源交叉验证。</li>
+            </ul>
+            <p style="margin-top: 0.6rem; font-size: 0.95rem; background: #f1f5f9; padding: 0.3rem 0.8rem; border-radius: 30px; display: inline-block;">🔍 查阅时注意信息发布日期</p>
+        </div>
+
+        <!-- 相关信息区卡片 (占满两列？利用grid自动放第三项会新起一行，符合两列，这里第三项占满两列宽度，但为了布局统一，使用wide-note 放在网格外) 但为了维持grid 2列，可以将相关信息区放在下方单独一行 wide-note，更清晰 -->
+    </div>
+
+    <!-- 相关信息区：以全宽卡片展示 (与网格分开但视觉连贯) -->
+    <div class="wide-note">
+        <h3>📎 相关信息区 · 内容索引摘要</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between;">
+            <div style="flex: 1 1 180px;">
+                <h4 style="font-weight: 520; margin-bottom: 0.3rem; color: #1e3a5f;">📰 新闻与资讯</h4>
+                <p style="font-size: 0.95rem;">平台设有多个体育项目分类，每类包含近期新闻、赛事预告及赛后摘要。</p>
+            </div>
+            <div style="flex: 1 1 180px;">
+                <h4 style="font-weight: 520; margin-bottom: 0.3rem; color: #1e3a5f;">📊 数据与统计</h4>
+                <p style="font-size: 0.95rem;">部分栏目提供基础数据列表，如积分、赛程等，便于快速查阅。</p>
+            </div>
+            <div style="flex: 1 1 180px;">
+                <h4 style="font-weight: 520; margin-bottom: 0.3rem; color: #1e3a5f;">📁 专题整理</h4>
+                <p style="font-size: 0.95rem;">特定时期或重大赛事期间，平台会推出专题页面，聚合相关内容。</p>
+            </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 1rem; background: #f1f5f9;">
+            <strong>📌 信息索引建议</strong>：使用 <a href="https://cn-n8sports.com" style="color: #2563eb; text-decoration: none;">牛八体育</a> 站内导航或搜索功能，可快速定位特定赛事或类别。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要区 (放在一个卡片) -->
+    <div class="wide-note" style="padding: 1.5rem 2rem;">
+        <h3>❓ 常见疑问摘要 (FAQ)</h3>
+        <div class="faq-item">
+            <div class="faq-q">Q：牛八体育平台主要提供哪类内容？</div>
+            <div class="faq-a">A：以体育资讯、赛事信息、运动相关文章为主，内容按项目与类型分类。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：资料整理页面是否代表官方立场？</div>
+            <div class="faq-a">A：不，本页为第三方信息索引与摘要，所有内容基于公开资料整理，具体请以 <a href="https://cn-n8sports.com" style="color: #2563eb; text-decoration: none;">牛八体育</a> 官方信息为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：我能否直接引用本页内容？</div>
+            <div class="faq-a">A：本页为辅助性整理，引用时建议同步核实原始出处，保持信息准确性。</div>
+        </div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; color: #475569;">更多疑问可参考平台内的帮助或相关说明页面。</div>
+    </div>
+
+    <!-- 额外卡片：场景 / 使用方向（可选，保持丰富感） -->
+    <div class="entry-card" style="padding: 1.5rem 2rem;">
+        <h2>🧭 使用方向参考</h2>
+        <p>以下列出几种常见的信息应用场景，供读者根据自身需要选取对应模块：</p>
+        <ul style="columns: 1; list-style: none; padding: 0; margin-top: 0.8rem;">
+            <li style="margin-bottom: 0.5rem;">🔹 <strong>日常查阅</strong> — 浏览首页或分类，获取最新体育动态。</li>
+            <li style="margin-bottom: 0.5rem;">🔹 <strong>专题研究</strong> — 利用平台专题整理功能，集中阅读特定赛事相关内容。</li>
+            <li style="margin-bottom: 0.5rem;">🔹 <strong>资料归档</strong> — 对感兴趣的项目或球队，持续跟踪其资讯与数据。</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">上述场景均基于 <a href="https://cn-n8sports.com" style="color: #1e293b; text-decoration: underline; text-underline-offset: 3px;">牛八体育</a> 现有内容结构，可灵活组合使用。</p>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>内容整理 · 信息索引 · 基于公开资料 · 仅供参考</p>
+        <p style="margin-top: 0.3rem;"><a href="https://cn-n8sports.com">牛八体育</a> — 体育资讯与内容平台</p>
+    </div>
+
+</div>
+</body>
+</html>
